@@ -14,6 +14,6 @@ export XDG_RUNTIME_DIR=""
 export PYTHONPATH=${PWD}:${PWD}/python_install:${PYTHONPATH}
 run_number=(0 1 2 3 4 5 6 7 8 9)
 srun apptainer exec --nv -B /srv,/home /home/users/m/mulligas/temp_container/skycurtains.sif \
-	   python /home/users/m/mulligas/skycurtains/scripts/tag_stars.py project_name=skycurtains_sweep base_dir=/home/users/m/mulligas/skycurtains/outputs \
+	   python /home/users/m/mulligas/skycurtains/scripts/tag_stars.py project_name=top_sweep_225 base_dir=/home/users/m/mulligas/scratch/skycurtains/ \
 	      run=${run_number[$SLURM_ARRAY_TASK_ID]} \
-	         network_name=2024-03-15_09-26-52-430405 \
+	         network_name=2024-03-19_01-37-15-342694 \
