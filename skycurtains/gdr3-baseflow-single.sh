@@ -7,9 +7,8 @@
 #SBATCH --gpus=1
 #SBATCH --output=/home/users/m/mulligas/skycurtains/logs/%A_%a.out
 #SBATCH --partition=public-gpu,shared-gpu
-#SBATCH --array 0
 
 srun apptainer exec --nv -B /srv,/home \
 	   /home/users/m/mulligas/temp_container/skycurtains_latest.sif \
 	      python ~/skycurtains/scripts/run_curtains.py \
-	      patch_num=${SLURM_ARRAY_TASK_ID}
+	      as_array=False
