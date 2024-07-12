@@ -17,10 +17,15 @@ declare -a file_array
 
 ### Read file line by line and sotre each line into the array ###
 while IFS= read -r line; do
-	file_array+=("$line")
+	file_array+=("${line%.*}")
 done < "$filename"
+
+### Get the filename with and without the extension ###
+network_name=${file_array[$SLURM_ARRAY_TASK_ID]}
+file_name=${network_name}.h5
 
 srun apptainer exec --nv -B /srv,/home \
 	/home/users/m/mulligas/temp_container/skycurtains_latest.sif \
 	python ~/skycurtains/scripts/run_curtains.py \
-	network_name=${file_array[$SLURM_ARRAY_TASK_ID]}
+	network_name="$network_name" \
+	datamodule.data_config.file_name="$file_name"
