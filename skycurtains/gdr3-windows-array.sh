@@ -1,13 +1,12 @@
 #!/bin/sh
 
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=20GB
-#SBATCH --time=04:00:00
-#SBATCH --job-name=array-gdr3-base
-#SBATCH --gpus=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=5GB
+#SBATCH --time=00:05:00
+#SBATCH --job-name=windows-gdr3
 #SBATCH --output=/home/users/m/mulligas/skycurtains/logs/%A_%a.out
-#SBATCH --partition=shared-gpu,private-dpnc-gpu
-#SBATCH --array 130-153
+#SBATCH --partition=shared-cpu,private-dpnc-cpu
+#SBATCH --array 0-153
 
 ### get patch name file path ###
 filename="/srv/beegfs/scratch/groups/rodem/skycurtains/gdr3_patch_names/patch_names.txt"
@@ -26,7 +25,5 @@ file_name=${network_name}.h5
 
 srun apptainer exec --nv -B /srv,/home \
 	/home/users/m/mulligas/temp_container/skycurtains_latest.sif \
-	python ~/skycurtains/scripts/run_curtains.py \
+	python ~/skycurtains/scripts/get_windows.py \
 	network_name="$network_name" \
-	datamodule.data_config.file_name="$file_name" \
-	datamodule.data_config.context="pm_lon_coslat"

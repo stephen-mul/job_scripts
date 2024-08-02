@@ -1,0 +1,9 @@
+[2024-07-18 10:39:49,972][__main__][INFO] - Loading data
+[2024-07-18 10:40:02,067][__main__][INFO] - Minimum and maximum values: -22.31553646786169, 6.139604946332102
+[2024-07-18 10:40:02,067][__main__][INFO] - Mean pm_lat value at -4.554409575788731
+[2024-07-18 10:40:02,067][__main__][INFO] - Number of windows: 5.485047138064598
+[2024-07-18 10:40:02,274][__main__][INFO] - Minimum and maximum values: -21.354191229371107, 7.44120422802319
+[2024-07-18 10:40:02,275][__main__][INFO] - Mean pm_lat value at -3.862639131742042
+[2024-07-18 10:40:02,275][__main__][INFO] - Number of windows: 5.598465152464765
+[2024-07-18 10:40:02,282][__main__][INFO] - Full path: /srv/beegfs/scratch/groups/rodem/skycurtains/results/sm/gdr3_base_bamboo/gaiascan_l0.0_b32.23_ra238.91_dec-9.56/pm_lat/base
+[2024-07-18 10:40:02,283][__main__][INFO] - Output dir: /srv/beegfs/scratch/groups/rodem/skycurtains/results/sm/gdr3_base_bamboo/gaiascan_l0.0_b32.23_ra238.91_dec-9.56/pm_lat

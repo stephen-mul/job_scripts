@@ -1,0 +1,49 @@
+window_width: 6
+step_size: 1
+output_type: dict
+project_name: gdr3_base_bamboo
+network_name: gaiascan_l0.0_b32.23_ra238.91_dec-9.56
+network_type: base
+data_path: /srv/beegfs/scratch/groups/rodem/skycurtains/gaiadump/patches/${network_name}.h5
+features:
+- pm_lat
+- pm_lon_coslat
+private:
+  entity: stephen-mulligan
+  output_dir: /srv/beegfs/scratch/groups/rodem/skycurtains/results/sm
+  project_dir: /home/users/m/mulligas/skycurtains/
+  image: /home/users/m/mulligas/temp_container/skycurtains.sif
+  scripts_savedir: /home/users/m/mulligas/skycurtains/slurmscripts/
+paths:
+  output_dir: ${private.output_dir}
+  root_dir: ${oc.env:PROJECT_ROOT}
+  full_path: ${paths.output_dir}/${project_name}/${network_name}/${datamodule.data_config.context}/${network_type}
+datamodule:
+  _target_: src.data.dataclasses.GaiaLineDataModule
+  data_config:
+    data_dir: /srv/beegfs/scratch/groups/rodem/skycurtains/data/patch_h5/gaiascan_l207.0_b50.2_ra148.6_dec24.2.h5
+    feature_list:
+    - lon
+    - lat
+    - color
+    - mag
+    - pm_lon_coslat
+    - pm_lat
+    context: pm_lat
+    bins:
+    - -17.291639416885737
+    - -17.291639416885737
+    - -11.291639416885737
+    - -5.291639416885737
+    - 0.7083605831142634
+    - 7083605831142634
+    split_frac: 0.2
+    resample: true
+    doping: null
+  minmax: true
+  load_config:
+    batch_size: 512
+    num_workers: 5
+    pin_memory: false
+    drop_last: false
+  no_sr: false
